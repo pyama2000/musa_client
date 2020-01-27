@@ -11,7 +11,7 @@ export const mutations = {
 }
 
 export const actions = {
-  async signIn({ commit, state }, code) {
+  async signIn({ commit }, code) {
     await axios.post(`http://0.0.0.0:8000/login?code=${code}`).then((_) => {
       commit('setSignIn', true)
     })
