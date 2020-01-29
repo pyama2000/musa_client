@@ -10,6 +10,12 @@ export const mutations = {
   }
 }
 
+export const getters = {
+  isSignedIn(state) {
+    return state.isSignedIn
+  }
+}
+
 export const actions = {
   async signIn({ commit }, code) {
     await axios.post(`http://0.0.0.0:8000/login?code=${code}`).then((_) => {

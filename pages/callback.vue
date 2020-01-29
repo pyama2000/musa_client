@@ -7,7 +7,7 @@ export default {
   middleware({ redirect, store, query }) {
     store.dispatch('login/signIn', query.code)
 
-    redirect('/')
+    return redirect('/')
   }
 }
 </script>

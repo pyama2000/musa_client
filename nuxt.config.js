@@ -32,6 +32,14 @@ export default {
    */
   plugins: [],
   /*
+   ** Plugins to load before mounting the App
+   */
+  /*
+  router: {
+    middleware: 'authenticated'
+  },
+  */
+  /*
    ** Nuxt.js dev-modules
    */
   buildModules: [
