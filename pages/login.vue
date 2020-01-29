@@ -2,7 +2,6 @@
   <div class="login">
     <div class="login__header">
       <logo />
-      <span class="login__title">Musa</span>
     </div>
     <span class="login__description">
       Musa is user friendly interface for playing music
@@ -38,27 +37,12 @@ export default {
 </script>
 
 <style lang="sass">
-.logo
-  margin-right: 16px
-
 .login
   margin: auto !important
   display: flex
   flex-direction: column
   max-width: 400px
   color: #ffffff
-  &__header
-    padding: 16px
-    display: flex
-    align-items: center
-    flex-wrap: wrap
-    font-size: 1.25rem
-    font-weight: 500
-    letter-spacing: 0.0125em
-    line-height: 2rem
-    word-break: break-all
-  &__title
-    font-size: 2rem
   &__description
     margin-bottom: 16px
     padding: 0 16px
