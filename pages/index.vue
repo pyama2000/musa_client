@@ -1,14 +1,72 @@
 <template>
-  <div></div>
+  <div class="index">
+    <v-card class="mx-auto index__card">
+      <v-card-title>
+        <logo />
+      </v-card-title>
+
+      <v-card-text class="headline font-weight-light">
+        Musa is user friendly interface for playing music with Spotify
+      </v-card-text>
+
+      <v-card-actions>
+        <v-btn
+          v-if="isSignedIn"
+          class="index__card__btn"
+          color="teal accent-4"
+          text
+          nuxt
+          to="/home"
+        >
+          HOME
+        </v-btn>
+        <v-btn
+          v-else
+          class="index__card__btn"
+          color="teal accent-4"
+          text
+          :href="`${loginURL}`"
+        >
+          LOGIN WITH SPOTIFY
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </div>
 </template>
 
 <script>
+import Logo from '~/components/Logo.vue'
+
 export default {
-  middleware({ redirect, store }) {
-    if (!store.getters['login/isSignedIn']) {
-      return redirect('/login')
+  layouts: 'empty',
+  components: {
+    Logo
+  },
+  data: () => ({
+    loginURL: null
+  }),
+  computed: {
+    isSignedIn() {
+      return this.$store.state.login.isSignedIn
+    }
+  },
+  async created() {
+    if (!this.isSignedIn) {
+      const { data } = await this.$axios.get('/auth')
+      this.loginURL = data
     }
   }
-  // middleware: 'authenticated'
 }
 </script>
+
+<style lang="sass">
+.index
+  margin: auto 0
+  &__card
+    max-width: 90%
+    &__btn
+      margin-left: auto
+
+.logo
+  margin: 16px 16px 16px 0
+</style>
