@@ -61,7 +61,7 @@ export default {
 
 <style lang="sass">
 .index
-  margin: auto 0
+  margin: auto
   &__card
     max-width: 90%
     &__btn
