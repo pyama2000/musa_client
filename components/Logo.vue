@@ -7,7 +7,6 @@
 
 <style lang="sass">
 .logo
-  padding: 16px
   display: flex
   align-items: center
   flex-wrap: wrap
