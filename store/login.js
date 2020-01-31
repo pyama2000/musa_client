@@ -1,25 +1,27 @@
 import axios from 'axios'
 
 export const state = () => ({
-  isSignedIn: false
+  userId: null
 })
 
 export const mutations = {
-  setSignIn(state, isSignedIn) {
-    state.isSignedIn = isSignedIn
+  setUserId(state, userId) {
+    state.userId = userId
   }
 }
 
 export const getters = {
-  isSignedIn(state) {
-    return state.isSignedIn
+  userId(state) {
+    return state.userId
   }
 }
 
 export const actions = {
   async signIn({ commit }, code) {
-    await axios.post(`http://0.0.0.0:8000/login?code=${code}`).then((_) => {
-      commit('setSignIn', true)
-    })
+    await axios
+      .post(`http://0.0.0.0:8000/login?code=${code}`)
+      .then((response) => {
+        commit('setUserId', response.data)
+      })
   }
 }
