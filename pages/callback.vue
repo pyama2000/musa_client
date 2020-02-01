@@ -3,11 +3,15 @@
 </template>
 
 <script>
-export default {
-  middleware({ redirect, store, query }) {
-    store.dispatch('login/signIn', query.code)
+import axios from 'axios'
 
-    return redirect('/')
+export default {
+  middleware({ query }) {
+    axios.post(
+      `http://localhost:8000/callback?code=${query.code}&state=${query.state}`
+    )
+
+    window.close()
   }
 }
 </script>
