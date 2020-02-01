@@ -25,7 +25,7 @@
           class="index__card__btn"
           color="teal accent-4"
           text
-          :href="`${loginURL}`"
+          @click.native="signIn"
         >
           LOGIN WITH SPOTIFY
         </v-btn>
@@ -42,18 +42,20 @@ export default {
   components: {
     Logo
   },
-  data: () => ({
-    loginURL: null
-  }),
-  computed: {
-    isSignedIn() {
-      return this.$store.state.login.isSignedIn
+  data() {
+    return {
+      isSignedIn: false
     }
   },
-  async created() {
-    if (!this.isSignedIn) {
-      const { data } = await this.$axios.get('/auth')
-      this.loginURL = data
+  methods: {
+    signIn() {
+      this.$axios.get('/auth').then((response) => {
+        this.$store.commit('login/setAuthState', response.data.state)
+
+        window.open(response.data.url)
+
+        this.isSignedIn = true
+      })
     }
   }
 }
