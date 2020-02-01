@@ -1,27 +1,18 @@
-import axios from 'axios'
-
 export const state = () => ({
-  userId: null
+  authState: null
 })
 
 export const mutations = {
-  setUserId(state, userId) {
-    state.userId = userId
+  setAuthState(state, authState) {
+    state.authState = authState
+  },
+  removeAuthState(state) {
+    state.authState = null
   }
 }
 
 export const getters = {
-  userId(state) {
-    return state.userId
-  }
-}
-
-export const actions = {
-  async signIn({ commit }, code) {
-    await axios
-      .post(`http://0.0.0.0:8000/login?code=${code}`)
-      .then((response) => {
-        commit('setUserId', response.data)
-      })
+  authState(state) {
+    return state.authState
   }
 }
