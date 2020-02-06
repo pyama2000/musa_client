@@ -2,16 +2,19 @@
   <div class="component__playlist-card">
     <v-card class="mx-auto">
       <v-img :src="imageUrl" />
-      <v-card-title>{{ name }}</v-card-title>
-      <v-card-text v-if="description !== ''">{{ description }}</v-card-text>
+
+      <v-card-title class="component__playlist-card__name">
+        {{ name }}
+      </v-card-title>
 
       <v-card-actions>
         <v-btn
           text
-          class="component__playlist-card__button"
+          class="component__playlist-card__action__button"
           color="teal accent-4"
-          >SHOW</v-btn
         >
+          SHOW
+        </v-btn>
       </v-card-actions>
     </v-card>
   </div>
@@ -20,10 +23,6 @@
 <script>
 export default {
   props: {
-    description: {
-      type: String,
-      required: true
-    },
     id: {
       type: String,
       required: true
@@ -42,6 +41,15 @@ export default {
 
 <style lang="sass">
 .component__playlist-card
-  &__button
-    margin-left: auto
+  &__name
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+  &__description
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+  &__action
+    &__button
+      margin-left: auto
 </style>
