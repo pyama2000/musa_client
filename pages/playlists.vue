@@ -1,11 +1,11 @@
 <template>
-  <div class="page-playlist">
+  <div class="page-playlists">
     <h3>USER</h3>
-    <div class="page-playlist__playlists-user">
+    <div class="page-playlists__playlists-user">
       <div
         v-for="(userPlaylist, i) in userPlaylists"
         :key="i"
-        class="page-playlist__playlists-user__item"
+        class="page-playlists__playlists-user__item"
       >
         <base-playlist-card
           :id="userPlaylist.id"
@@ -14,12 +14,12 @@
         />
       </div>
     </div>
-    <div class="page-playlist__playlists-followed">
+    <div class="page-playlists__playlists-followed">
       <h3>FOLLOWED</h3>
       <div
         v-for="(followedPlaylist, i) in followedPlaylists"
         :key="i"
-        class="page-playlist__playlists-followed__item"
+        class="page-playlists__playlists-followed__item"
       >
         <base-playlist-card
           :id="followedPlaylist.id"
@@ -66,7 +66,7 @@ export default {
 </script>
 
 <style lang="sass">
-.page-playlist__playlists-user
+.page-playlists__playlists-user
   display: grid
   grid-gap: 16px
   // grid-template-columns: repeat(auto-fill,minmax(164px,1fr))

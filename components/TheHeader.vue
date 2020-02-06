@@ -40,7 +40,7 @@ export default {
     drawer: false,
     item: 0,
     items: [
-      { title: 'playlist', icon: 'mdi-playlist-music' },
+      { title: 'playlists', icon: 'mdi-playlist-music' },
       { title: 'search', icon: 'mdi-magnify' }
     ]
   }),
