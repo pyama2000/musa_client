@@ -12,6 +12,7 @@
           text
           class="component__playlist-card__action__button"
           color="teal accent-4"
+          :to="`playlist?playlistID=${id}`"
         >
           SHOW
         </v-btn>
