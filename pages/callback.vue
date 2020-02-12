@@ -11,7 +11,9 @@ export default {
       `http://localhost:8000/callback?code=${query.code}&state=${query.state}`
     )
 
-    window.close()
+    if (process.client) {
+      window.close()
+    }
   }
 }
 </script>
