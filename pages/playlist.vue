@@ -2,11 +2,10 @@
   <div class="page-playlist">
     <the-playlist-detail
       :description="playlist.description"
-      :imageUrl="playlist.images[0].url"
+      :image-url="playlist.images[0].url"
       :name="playlist.name"
-      :owner="playlist.owner.id"
+      :owner="playlist.owner.display_name"
     />
-    {{ playlist }}
   </div>
 </template>
 
@@ -22,18 +21,15 @@ export default {
       playlist: null
     }
   },
-  created() {
-    this.$axios
-      .get('/playlist', {
-        params: {
-          user_id: this.$store.getters['user/userID'],
-          playlist_id: this.$route.query.playlistID
-        }
-      })
-      .then((response) => {
-        console.log(response.data.playlist)
-        this.playlist = response.data.playlist
-      })
+  async asyncData({ $axios, store, route }) {
+    const playlistData = await $axios.get('/playlist', {
+      params: {
+        user_id: store.getters['user/userID'],
+        playlist_id: route.query.playlistID
+      }
+    })
+
+    return { playlist: playlistData.data.playlist }
   }
 }
 </script>
