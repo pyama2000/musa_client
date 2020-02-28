@@ -1,7 +1,7 @@
 <template>
   <v-app dark>
     <the-header />
-    <nuxt />
+    <nuxt class="nuxt__pages" />
   </v-app>
 </template>
 
@@ -14,3 +14,8 @@ export default {
   }
 }
 </script>
+
+<style lang="sass">
+.nuxt__pages
+  padding: 16px
+</style>
