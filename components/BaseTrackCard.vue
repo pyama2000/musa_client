@@ -67,6 +67,7 @@ export default {
   padding: 16px
   display: flex
   flex-direction: column
+  border-radius: 0.25em
   box-shadow: 2px 2px 6px rgba(0,0,0,.4)
   &__added-at
     display: flex
