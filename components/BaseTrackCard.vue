@@ -101,4 +101,7 @@ export default {
     font-size: 1.8em
     font-weight: 800
     line-height: 1.2em
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
 </style>
