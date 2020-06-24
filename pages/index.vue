@@ -10,23 +10,7 @@
       </v-card-text>
 
       <v-card-actions>
-        <v-btn
-          v-if="isSignedIn"
-          class="index__card__btn"
-          color="teal accent-4"
-          text
-          nuxt
-          to="/home"
-        >
-          HOME
-        </v-btn>
-        <v-btn
-          v-else
-          @click.native="signIn"
-          class="index__card__btn"
-          color="teal accent-4"
-          text
-        >
+        <v-btn :href="url" class="index__card__btn" color="teal accent-4" text>
           LOGIN WITH SPOTIFY
         </v-btn>
       </v-card-actions>
@@ -42,21 +26,13 @@ export default {
   components: {
     Logo
   },
-  data() {
-    return {
-      isSignedIn: false
-    }
-  },
-  methods: {
-    signIn() {
-      this.$axios.get('/auth').then((response) => {
-        this.$store.commit('login/setAuthState', response.data.state)
+  async asyncData({ $axios }) {
+    let url = null
+    await $axios.get('/auth').then(({ data }) => {
+      url = data.url
+    })
 
-        window.open(response.data.url)
-
-        this.isSignedIn = true
-      })
-    }
+    return { url }
   }
 }
 </script>
