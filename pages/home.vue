@@ -4,10 +4,13 @@
 
 <script>
 export default {
-  middleware({ store }) {
-    if (!store.getters['login/authState'] || !store.getters['user/userID']) {
-      store.dispatch('user/login')
+  middleware({ redirect, query, $axios }) {
+    const code = query.code
+    if (code) {
+      $axios.post('/auth', { code })
     }
+
+    redirect('/home')
   }
 }
 </script>
