@@ -22,10 +22,10 @@
         </v-btn>
         <v-btn
           v-else
+          @click.native="signIn"
           class="index__card__btn"
           color="teal accent-4"
           text
-          @click.native="signIn"
         >
           LOGIN WITH SPOTIFY
         </v-btn>

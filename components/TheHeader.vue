@@ -19,8 +19,8 @@
           <v-list-item
             v-for="(item, i) in items"
             :key="i"
-            flat
             :to="`${item.title}`"
+            flat
           >
             <v-list-item-icon><v-icon v-text="item.icon"/></v-list-item-icon>
 

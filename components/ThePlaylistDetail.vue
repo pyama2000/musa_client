@@ -1,6 +1,6 @@
 <template>
   <div class="component-playlist-detail">
-    <img class="component-playlist-detail__img" :src="imageUrl" />
+    <img :src="imageUrl" class="component-playlist-detail__img" />
     <div class="component-playlist-detail__information">
       <span class="component-playlist-detail__information__name">
         {{ name }}
