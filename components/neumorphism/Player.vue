@@ -40,7 +40,7 @@ export default {
   gap: 24px;
   grid-template-areas: 'image track-name' 'buttons buttons';
   align-items: center;
-  padding: 16px 8px;
+  padding: 0 8px;
   background: #eef0f4;
 
   &__image {

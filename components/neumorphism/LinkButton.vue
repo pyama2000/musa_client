@@ -46,15 +46,15 @@ export default {
   padding: 12px 0;
   color: #61677c;
   font-weight: bold;
-  background: #ffffff;
+  background: #eef0f4;
   border-radius: 50px;
-  box-shadow: 9.31px 9.31px 15px #d6d6d6, -9.31px -9.31px 15px #ffffff;
+  box-shadow: 9.91px 9.91px 15px #d9dade, -9.91px -9.91px 15px #ffffff;
 
   &--active {
     @extend .link-button;
     pointer-events: none;
-    box-shadow: inset 9.31px 9.31px 15px #d6d6d6,
-      inset -9.31px -9.31px 15px #ffffff;
+    box-shadow: inset 9.91px 9.91px 15px #d9dade,
+      inset -9.91px -9.91px 15px #ffffff;
   }
 }
 </style>

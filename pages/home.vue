@@ -43,7 +43,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.home__card {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  background: #eef0f4;
+}
+
 .link-button-list {
-  margin: 24px 0;
+  margin-top: 24px;
 }
 </style>
