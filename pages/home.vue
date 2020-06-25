@@ -1,5 +1,7 @@
 <template>
-  <div class="home"></div>
+  <div class="home">
+    <player :object="currentPlayingTrack" />
+  </div>
 </template>
 
 <script>
@@ -11,15 +13,18 @@ export default {
       redirect('/home')
     }
   },
+  components: {
+    Player: () => import('~/components/neumorphism/Player')
+  },
   async asyncData({ $axios }) {
     const { data, status } = await $axios.get('/player/current')
 
     if (status !== 200) {
-      return { current: null }
+      return { currentPlayingTrack: null }
     }
 
     return {
-      current: {
+      currentPlayingTrack: {
         isPlaying: data.is_playing,
         track: {
           id: data.track.id,
