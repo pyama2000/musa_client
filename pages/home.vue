@@ -10,6 +10,24 @@ export default {
       await $axios.post('/auth', { code })
       redirect('/home')
     }
+  },
+  async asyncData({ $axios }) {
+    const { data, status } = await $axios.get('/player/current')
+
+    if (status !== 200) {
+      return { current: null }
+    }
+
+    return {
+      current: {
+        isPlaying: data.is_playing,
+        track: {
+          id: data.track.id,
+          image: data.track.image,
+          name: data.track.name
+        }
+      }
+    }
   }
 }
 </script>
