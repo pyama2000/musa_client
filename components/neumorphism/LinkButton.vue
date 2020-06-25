@@ -1,6 +1,8 @@
 <template>
   <div :class="[active]">
-    <nuxt-link :to="page">{{ page }}</nuxt-link>
+    <nuxt-link :to="page">
+      <i class="material-icons">{{ iconName }}</i>
+    </nuxt-link>
   </div>
 </template>
 
@@ -18,6 +20,19 @@ export default {
       return this.$route.name === this.page
         ? 'link-button--active'
         : 'link-button'
+    },
+    iconName() {
+      let iconName = ''
+
+      if (this.page === 'home') {
+        iconName = 'home'
+      } else if (this.page === 'playlists') {
+        iconName = 'library_music'
+      } else if (this.page === 'search') {
+        iconName = 'search'
+      }
+
+      return iconName
     }
   }
 }
