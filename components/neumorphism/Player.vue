@@ -1,5 +1,5 @@
 <template>
-  <div class="player">
+  <div v-if="object !== null" class="player">
     <div>{{ object.track.name }}</div>
   </div>
 </template>
