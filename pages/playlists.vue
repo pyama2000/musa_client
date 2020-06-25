@@ -39,28 +39,12 @@ export default {
   components: {
     BasePlaylistCard
   },
-  data() {
+  async asyncData({ $axios }) {
+    const { data } = await $axios.get('/playlists')
     return {
-      userPlaylists: null,
-      followedPlaylists: null
+      followedPlaylists: data.followed_playlists,
+      userPlaylists: data.user_playlists
     }
-  },
-  beforeMount() {
-    this.$axios
-      .get('/playlists', {
-        params: {
-          user_id: this.$store.getters['user/userID']
-        }
-      })
-      .then((response) => {
-        this.userPlaylists = response.data.user_playlists
-        this.followedPlaylists = response.data.followed_playlists
-
-        if (window.matchMedia('(max-width: 767px)').matches) {
-          this.userPlaylists = this.userPlaylists.slice(0, 3)
-          this.followedPlaylists = this.followedPlaylists.slice(0, 3)
-        }
-      })
   }
 }
 </script>

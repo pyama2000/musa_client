@@ -26,13 +26,15 @@ export default {
   components: {
     Logo
   },
-  async asyncData({ $axios }) {
-    let url = null
-    await $axios.get('/auth').then(({ data }) => {
-      url = data.url
+  data() {
+    return {
+      url: null
+    }
+  },
+  async mounted() {
+    await this.$axios.get('/auth').then(({ data }) => {
+      this.url = data.url
     })
-
-    return { url }
   }
 }
 </script>
