@@ -1,5 +1,5 @@
 <template>
-  <div class="link-button">
+  <div :class="[active]">
     <nuxt-link :to="page">{{ page }}</nuxt-link>
   </div>
 </template>
@@ -11,6 +11,13 @@ export default {
       type: String,
       require: true,
       default: null
+    }
+  },
+  computed: {
+    active() {
+      return this.$route.name === this.page
+        ? 'link-button--active'
+        : 'link-button'
     }
   }
 }
@@ -24,8 +31,15 @@ export default {
   padding: 12px 0;
   color: #61677c;
   font-weight: bold;
-  background: #eef0f4;
+  background: #ffffff;
   border-radius: 50px;
-  box-shadow: 9.91px 9.91px 15px #d9dade, -9.91px -9.91px 15px #ffffff;
+  box-shadow: 9.31px 9.31px 15px #d6d6d6, -9.31px -9.31px 15px #ffffff;
+
+  &--active {
+    @extend .link-button;
+    pointer-events: none;
+    box-shadow: inset 9.31px 9.31px 15px #d6d6d6,
+      inset -9.31px -9.31px 15px #ffffff;
+  }
 }
 </style>
