@@ -3,7 +3,7 @@
     <div class="home__card">
       <player :object="currentPlayingTrack" />
 
-      <link-button-list />
+      <link-button-list class="link-button-list" />
     </div>
   </div>
 </template>
@@ -41,3 +41,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.link-button-list {
+  margin: 24px 0;
+}
+</style>
