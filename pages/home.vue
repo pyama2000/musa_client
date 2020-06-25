@@ -1,6 +1,10 @@
 <template>
   <div class="home">
-    <player :object="currentPlayingTrack" />
+    <div class="home__card">
+      <player :object="currentPlayingTrack" />
+
+      <link-button-list />
+    </div>
   </div>
 </template>
 
@@ -14,7 +18,8 @@ export default {
     }
   },
   components: {
-    Player: () => import('~/components/neumorphism/Player')
+    Player: () => import('~/components/neumorphism/Player'),
+    LinkButtonList: () => import('~/components/neumorphism/LinkButtonList')
   },
   async asyncData({ $axios }) {
     const { data, status } = await $axios.get('/player/current')
