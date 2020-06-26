@@ -11,7 +11,8 @@
         <i class="material-icons">skip_previous</i>
       </div>
       <div class="player__buttons__item">
-        <i class="material-icons">pause</i>
+        <i v-if="object.isPlaying" class="material-icons">pause</i>
+        <i v-else class="material-icons">play_arrow</i>
       </div>
       <div class="player__buttons__item">
         <i class="material-icons">skip_next</i>
