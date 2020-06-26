@@ -1,18 +1,10 @@
 <template>
   <div class="home">
-    <div class="home__card">
-      <player :object="currentPlayingTrack" />
+    <player :object="currentPlayingTrack" />
 
-      <div class="playlists__container">
-        <playlist-card
-          v-for="(playlist, i) in playlists"
-          :key="i"
-          :playlist="playlist"
-        />
-      </div>
+    <playlist-card-container :playlists="playlists" />
 
-      <link-button-container class="link-button-list" />
-    </div>
+    <link-button-container />
   </div>
 </template>
 
@@ -29,7 +21,8 @@ export default {
     Player: () => import('~/components/neumorphism/Player'),
     LinkButtonContainer: () =>
       import('~/components/neumorphism/LinkButtonContainer'),
-    PlaylistCard: () => import('~/components/neumorphism/PlaylistCard')
+    PlaylistCardContainer: () =>
+      import('~/components/neumorphism/PlaylistCardContainer')
   },
   async asyncData({ $axios }) {
     let currentPlayingTrack = null
@@ -60,7 +53,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.home__card {
+.home {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -68,28 +61,5 @@ export default {
   padding-top: 16px;
   padding-bottom: 16px;
   background: #eef0f4;
-}
-
-.playlists__container {
-  display: flex;
-  margin: 24px 16px;
-  padding: 24px;
-  background: #eef0f4;
-  border-radius: 15px;
-  box-shadow: 9.91px 9.91px 15px #d9dade, -9.91px -9.91px 15px #ffffff;
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
-
-  & > .playlist-card {
-    margin: 0 8px;
-  }
-
-  & > .playlist-card:first-child {
-    margin-left: 0;
-  }
-
-  & > .playlist-card:last-child {
-    margin-right: 0;
-  }
 }
 </style>
