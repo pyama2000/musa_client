@@ -40,8 +40,8 @@ export default {
     })
 
     let playlists = null
-    await $axios.get('/playlists').then(({ data }) => {
-      playlists = data.followed_playlists
+    await $axios.get('/featured').then(({ data }) => {
+      playlists = data.playlists
     })
 
     return {
