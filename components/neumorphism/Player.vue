@@ -6,7 +6,7 @@
       class="player__image"
     />
     <div class="player__track-name">
-      {{ object.track.name }}
+      <span>{{ object.track.name }}</span>
     </div>
     <div class="player__buttons">
       <icon-button @click.native="skipPrevious" icon-name="skip_previous" />
@@ -65,7 +65,6 @@ export default {
   grid-template-areas: 'image track-name' 'image buttons';
   height: 120px;
   align-items: center;
-  padding: 0 8px;
   background: #eef0f4;
 
   &__image {
@@ -77,11 +76,16 @@ export default {
   &__track-name {
     grid-area: track-name;
     display: flex;
-    height: 100%;
+    align-self: center;
     font-weight: bold;
-    align-items: center;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    & > span {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+    }
   }
 
   &__buttons {

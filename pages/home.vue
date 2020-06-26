@@ -1,10 +1,8 @@
 <template>
   <div class="home">
     <player :object="currentPlayingTrack" />
-
+    <div class="margin-spacer" />
     <playlist-card-container :playlists="playlists" />
-
-    <link-button-container />
   </div>
 </template>
 
@@ -19,8 +17,6 @@ export default {
   },
   components: {
     Player: () => import('~/components/neumorphism/Player'),
-    LinkButtonContainer: () =>
-      import('~/components/neumorphism/LinkButtonContainer'),
     PlaylistCardContainer: () =>
       import('~/components/neumorphism/PlaylistCardContainer')
   },
@@ -53,13 +49,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.home {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100vh;
-  padding-top: 16px;
-  padding-bottom: 16px;
-  background: #eef0f4;
+.margin-spacer {
+  margin: 18px 0;
 }
 </style>
