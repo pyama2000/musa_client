@@ -10,10 +10,10 @@
       <div class="player__buttons__item">
         <i class="material-icons">skip_previous</i>
       </div>
-      <div class="player__buttons__item">
+      <button @click="pauseResume" class="player__buttons__item">
         <i v-if="object.isPlaying" class="material-icons">pause</i>
         <i v-else class="material-icons">play_arrow</i>
-      </div>
+      </button>
       <div class="player__buttons__item">
         <i class="material-icons">skip_next</i>
       </div>
@@ -28,6 +28,15 @@ export default {
       type: Object,
       require: null,
       default: null
+    }
+  },
+  methods: {
+    pauseResume() {
+      const url = this.object.isPlaying ? 'pause' : 'resume'
+
+      this.$axios.put(`/player/${url}`).then(({ data }) => {
+        this.object.isPlaying = !this.object.isPlaying
+      })
     }
   }
 }
