@@ -4,9 +4,11 @@
       <player :object="currentPlayingTrack" />
 
       <div class="playlists__container">
-        <div v-for="(playlist, i) in playlists" :key="i">
-          <playlist-card :playlist="playlist" />
-        </div>
+        <playlist-card
+          v-for="(playlist, i) in playlists"
+          :key="i"
+          :playlist="playlist"
+        />
       </div>
 
       <link-button-list class="link-button-list" />
@@ -77,8 +79,16 @@ export default {
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
 
-  & > * {
+  & > .playlist-card {
     margin: 0 8px;
+  }
+
+  & > .playlist-card:first-child {
+    margin-left: 0;
+  }
+
+  & > .playlist-card:last-child {
+    margin-right: 0;
   }
 }
 </style>

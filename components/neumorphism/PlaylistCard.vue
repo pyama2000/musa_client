@@ -27,15 +27,19 @@ export default {
 
 <style lang="scss" scoped>
 .playlist-card {
-  display: grid;
-  grid-template-rows: 88px 1fr;
-  gap: 24px;
+  display: flex;
+  flex-direction: column;
   width: 120px;
-  height: 180px;
-  padding: 24px 16px;
+  min-width: 120px;
+  height: 160px;
+  padding: 24px 16px 16px;
   background: #eef0f4;
   border-radius: 15px;
   box-shadow: 9.91px 9.91px 15px #d9dade, -9.91px -9.91px 15px #ffffff;
+
+  &__image {
+    height: calc(120px - (16px * 2));
+  }
 
   &__title {
     width: 100%;
