@@ -58,8 +58,8 @@ export default {
   display: grid;
   grid-template-columns: 120px 1fr;
   grid-template-rows: 1.5fr 0.5fr;
-  gap: 24px;
-  grid-template-areas: 'image track-name' 'buttons buttons';
+  gap: 0 24px;
+  grid-template-areas: 'image track-name' 'image buttons';
   align-items: center;
   padding: 0 8px;
   background: #eef0f4;
@@ -83,15 +83,17 @@ export default {
   &__track-name {
     grid-area: track-name;
     display: flex;
-    align-items: center;
     height: 100%;
     font-weight: bold;
+    align-items: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__buttons {
     grid-area: buttons;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
   }
 }
 </style>
