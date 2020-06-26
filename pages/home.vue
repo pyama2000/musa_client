@@ -11,7 +11,7 @@
         />
       </div>
 
-      <link-button-list class="link-button-list" />
+      <link-button-container class="link-button-list" />
     </div>
   </div>
 </template>
@@ -27,7 +27,8 @@ export default {
   },
   components: {
     Player: () => import('~/components/neumorphism/Player'),
-    LinkButtonList: () => import('~/components/neumorphism/LinkButtonList'),
+    LinkButtonContainer: () =>
+      import('~/components/neumorphism/LinkButtonContainer'),
     PlaylistCard: () => import('~/components/neumorphism/PlaylistCard')
   },
   async asyncData({ $axios }) {
