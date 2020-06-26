@@ -1,5 +1,8 @@
 <template>
-  <div class="playlist-card">
+  <nuxt-link
+    :to="{ name: 'playlist', query: { playlistId: playlist.id } }"
+    class="playlist-card"
+  >
     <img
       :src="playlist.image_url"
       alt="Playlist image"
@@ -8,7 +11,7 @@
     <div class="playlist-card__title">
       {{ playlist.name }}
     </div>
-  </div>
+  </nuxt-link>
 </template>
 
 <script>
