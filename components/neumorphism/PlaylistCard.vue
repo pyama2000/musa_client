@@ -38,7 +38,6 @@ export default {
     width: 90%;
     height: auto;
     padding: 0 2px;
-    border-radius: 15px;
   }
 
   &__title {
