@@ -19,14 +19,17 @@ export default {
 .layout {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: -webkit-fill-available;
   background: #eef0f4;
 }
 
 .page {
   display: flex;
   flex-direction: column;
-  height: -webkit-fill-available;
   padding: 16px;
+}
+
+.link-button-container {
+  margin-top: auto;
 }
 </style>
