@@ -2,7 +2,10 @@
   <div class="home">
     <player :object="currentPlayingTrack" />
     <div class="margin-spacer" />
-    <playlist-card-container :playlists="playlists" />
+    <playlist-card-container
+      :playlists="playlists"
+      title="Featured Playlists"
+    />
   </div>
 </template>
 
@@ -49,6 +52,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.player {
+  padding: 0 16px;
+}
 .margin-spacer {
   margin: 18px 0;
 }

@@ -26,10 +26,11 @@ export default {
 .page {
   display: flex;
   flex-direction: column;
-  padding: 16px;
+  padding: 16px 0;
 }
 
 .link-button-container {
   margin-top: auto;
+  margin-bottom: 16px;
 }
 </style>

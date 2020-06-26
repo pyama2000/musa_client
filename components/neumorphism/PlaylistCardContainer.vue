@@ -1,10 +1,15 @@
 <template>
   <div class="playlist-card-container">
-    <playlist-card
-      v-for="(playlist, i) in playlists"
-      :key="i"
-      :playlist="playlist"
-    />
+    <div class="playlist-card-container__title">
+      <span>{{ title }}</span>
+    </div>
+    <div class="playlist-card-container__list">
+      <playlist-card
+        v-for="(playlist, i) in playlists"
+        :key="i"
+        :playlist="playlist"
+      />
+    </div>
   </div>
 </template>
 
@@ -14,6 +19,10 @@ export default {
     PlaylistCard: () => import('~/components/neumorphism/PlaylistCard')
   },
   props: {
+    title: {
+      type: String,
+      required: true
+    },
     playlists: {
       type: Array,
       required: true
@@ -25,23 +34,41 @@ export default {
 <style lang="scss" scoped>
 .playlist-card-container {
   display: flex;
-  padding: 24px;
-  background: #eef0f4;
-  border-radius: 15px;
-  box-shadow: 9.91px 9.91px 15px #d9dade, -9.91px -9.91px 15px #ffffff;
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
+  flex-direction: column;
 
-  & > .playlist-card {
-    margin: 0 8px;
+  &__title {
+    padding: 0 16px;
+    font-size: larger;
+    font-weight: bold;
   }
 
-  & > .playlist-card:first-child {
-    margin-left: 0;
-  }
+  &__list {
+    display: flex;
+    padding: 24px 16px;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
 
-  & > .playlist-card:last-child {
-    margin-right: 0;
+    & > .playlist-card {
+      margin: 0 12px;
+    }
+
+    & > .playlist-card:first-child {
+      margin-left: 0;
+    }
+
+    & > .playlist-card:last-child {
+      position: relative;
+      margin-right: 0;
+    }
+
+    & > .playlist-card:last-child:after {
+      position: absolute;
+      top: 0;
+      left: 100%;
+      width: 1.5em;
+      height: 1px;
+      content: '';
+    }
   }
 }
 </style>
