@@ -25,7 +25,6 @@ export default {
 <style lang="scss" scoped>
 .playlist-card-container {
   display: flex;
-  margin: 24px 16px;
   padding: 24px;
   background: #eef0f4;
   border-radius: 15px;
