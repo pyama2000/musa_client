@@ -7,16 +7,16 @@
       {{ object.track.name }}
     </div>
     <div class="player__buttons">
-      <div class="player__buttons__item">
+      <button @click="skipPrevious" class="player__buttons__item">
         <i class="material-icons">skip_previous</i>
-      </div>
+      </button>
       <button @click="pauseResume" class="player__buttons__item">
         <i v-if="object.isPlaying" class="material-icons">pause</i>
         <i v-else class="material-icons">play_arrow</i>
       </button>
-      <div class="player__buttons__item">
+      <button @click="skipNext" class="player__buttons__item">
         <i class="material-icons">skip_next</i>
-      </div>
+      </button>
     </div>
   </div>
 </template>
@@ -36,6 +36,16 @@ export default {
 
       this.$axios.put(`/player/${url}`).then(({ data }) => {
         this.object.isPlaying = !this.object.isPlaying
+      })
+    },
+    skipNext() {
+      this.$axios.post('/player/next').then(({ data }) => {
+        this.object.track = data.track
+      })
+    },
+    skipPrevious() {
+      this.$axios.post('/player/previous').then(({ data }) => {
+        this.object.track = data.track
       })
     }
   }
