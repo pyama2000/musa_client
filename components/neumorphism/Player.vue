@@ -7,27 +7,47 @@
       {{ object.track.name }}
     </div>
     <div class="player__buttons">
-      <div class="player__buttons__item">
-        <i class="material-icons">skip_previous</i>
-      </div>
-      <div class="player__buttons__item">
-        <i v-if="object.isPlaying" class="material-icons">pause</i>
-        <i v-else class="material-icons">play_arrow</i>
-      </div>
-      <div class="player__buttons__item">
-        <i class="material-icons">skip_next</i>
-      </div>
+      <icon-button @click.native="skipPrevious" icon-name="skip_previous" />
+      <icon-button @click.native="pauseResume" :icon-name="getPauseResume" />
+      <icon-button @click.native="skipNext" icon-name="skip_next" />
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  components: {
+    IconButton: () => import('~/components/neumorphism/IconButton')
+  },
   props: {
     object: {
       type: Object,
-      require: null,
+      required: true,
       default: null
+    }
+  },
+  computed: {
+    getPauseResume() {
+      return this.object.isPlaying ? 'pause' : 'play_arrow'
+    }
+  },
+  methods: {
+    pauseResume() {
+      const url = this.object.isPlaying ? 'pause' : 'resume'
+
+      this.$axios.put(`/player/${url}`).then(({ data }) => {
+        this.object.isPlaying = !this.object.isPlaying
+      })
+    },
+    skipNext() {
+      this.$axios.post('/player/next').then(({ data }) => {
+        this.object.track = data.track
+      })
+    },
+    skipPrevious() {
+      this.$axios.post('/player/previous').then(({ data }) => {
+        this.object.track = data.track
+      })
     }
   }
 }
@@ -72,13 +92,6 @@ export default {
     grid-area: buttons;
     display: flex;
     justify-content: space-around;
-
-    &__item {
-      padding: 12px;
-      background: #eef0f4;
-      border-radius: 100%;
-      box-shadow: 9.91px 9.91px 15px #d9dade, -9.91px -9.91px 15px #ffffff;
-    }
   }
 }
 </style>
