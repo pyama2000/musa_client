@@ -26,7 +26,7 @@ export default {
   props: {
     object: {
       type: Object,
-      require: null,
+      required: true,
       default: null
     }
   },
