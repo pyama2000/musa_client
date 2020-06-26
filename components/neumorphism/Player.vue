@@ -1,8 +1,10 @@
 <template>
   <div v-if="object !== null" class="player">
-    <div class="player__image">
-      <img :src="object.track.image" alt="Album image" />
-    </div>
+    <image-sheet
+      :src="object.track.image"
+      alt="Album image"
+      class="player__image"
+    />
     <div class="player__track-name">
       {{ object.track.name }}
     </div>
@@ -17,7 +19,8 @@
 <script>
 export default {
   components: {
-    IconButton: () => import('~/components/neumorphism/IconButton')
+    IconButton: () => import('~/components/neumorphism/IconButton'),
+    ImageSheet: () => import('~/components/neumorphism/ImageSheet')
   },
   props: {
     object: {
@@ -60,24 +63,15 @@ export default {
   grid-template-rows: 1.5fr 0.5fr;
   gap: 0 24px;
   grid-template-areas: 'image track-name' 'image buttons';
+  height: 120px;
   align-items: center;
   padding: 0 8px;
   background: #eef0f4;
 
   &__image {
     grid-area: image;
-    display: flex;
     width: 120px;
     height: 120px;
-    background: #eef0f4;
-    border-radius: 15%;
-    box-shadow: 9.91px 9.91px 15px #d9dade, -9.91px -9.91px 15px #ffffff;
-
-    & > img {
-      width: 80%;
-      height: 80%;
-      margin: auto;
-    }
   }
 
   &__track-name {
