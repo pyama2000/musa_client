@@ -1,9 +1,7 @@
 <template>
-  <div :class="[active]">
-    <nuxt-link :to="page">
-      <i class="material-icons">{{ iconName }}</i>
-    </nuxt-link>
-  </div>
+  <nuxt-link :to="page" :class="active">
+    <i class="material-icons">{{ iconName }}</i>
+  </nuxt-link>
 </template>
 
 <script>
@@ -40,13 +38,12 @@ export default {
 
 <style lang="scss" scoped>
 .link-button {
+  width: 100px;
+  height: 50px;
   display: flex;
   justify-content: center;
-  width: 120px;
-  padding: 12px 0;
-  color: #61677c;
-  font-weight: bold;
-  background: #eef0f4;
+  align-items: center;
+  color: #f6a657;
   border-radius: 50px;
   box-shadow: 9.91px 9.91px 15px #d9dade, -9.91px -9.91px 15px #ffffff;
 
