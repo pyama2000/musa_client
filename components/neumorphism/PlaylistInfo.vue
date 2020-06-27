@@ -28,6 +28,7 @@
           <base-button
             v-for="(feature, i) in features"
             :key="i"
+            :style="{ color: fontColor(feature) }"
             class="section2__buttons__button"
           >
             <span>{{ feature }}</span>
@@ -59,6 +60,17 @@ export default {
   data() {
     return {
       features: ['marge', 'snapshot', 'queue', 'delete']
+    }
+  },
+  computed: {
+    fontColor() {
+      return function(feature) {
+        if (feature === 'delete') {
+          return '#e53a40'
+        } else {
+          return '#50545c'
+        }
+      }
     }
   }
 }
