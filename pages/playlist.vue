@@ -37,8 +37,6 @@ export default {
         tracks = data.tracks
       })
 
-    console.log(tracks)
-
     return {
       playlist,
       tracks

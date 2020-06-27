@@ -27,7 +27,7 @@ export default {
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 16px 0 24px;
+  padding: 16px 0 36px;
 }
 
 .link-button-container {

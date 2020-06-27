@@ -31,6 +31,7 @@ export default {
   background: #eef0f4;
   border-radius: 15px;
   box-shadow: 9.91px 9.91px 15px #d9dade, -9.91px -9.91px 15px #ffffff;
+  overflow: scroll;
 
   &__item {
     margin: 8px 0;

@@ -13,7 +13,7 @@
       <span>{{ track.artist.name }}</span>
     </div>
     <div class="play-track__play">
-      <icon-button iconName="play_arrow" />
+      <icon-button icon-name="play_arrow" />
     </div>
   </div>
 </template>
