@@ -13,19 +13,30 @@
         </div>
 
         <div class="section1__buttons">
-          <flat-icon-button
-            icon-name="play_arrow"
-            class="section1__buttons__button"
-          />
-          <flat-icon-button
-            icon-name="shuffle"
-            class="section1__buttons__button"
-          />
+          <base-button class="section1__buttons__button">
+            <i class="material-icons">play_arrow</i>
+          </base-button>
+
+          <base-button class="section1__buttons__button">
+            <i class="material-icons">shuffle</i>
+          </base-button>
         </div>
       </section>
 
       <section class="playlist-info__slider__item section2">
-        <div class="section2__description">
+        <div class="section2__buttons">
+          <base-button
+            v-for="(feature, i) in features"
+            :key="i"
+            class="section2__buttons__button"
+          >
+            <span>{{ feature }}</span>
+          </base-button>
+        </div>
+      </section>
+
+      <section class="playlist-info__slider__item section3">
+        <div class="section3__description">
           <span>{{ playlist.description }}</span>
         </div>
       </section>
@@ -36,13 +47,18 @@
 <script>
 export default {
   components: {
-    FlatIconButton: () => import('~/components/FlatIconButton'),
+    BaseButton: () => import('~/components/neumorphism/BaseButton'),
     ImageSheet: () => import('~/components/neumorphism/ImageSheet')
   },
   props: {
     playlist: {
       type: Object,
       required: true
+    }
+  },
+  data() {
+    return {
+      features: ['marge', 'snapshot', 'queue', 'delete']
     }
   }
 }
@@ -54,7 +70,7 @@ export default {
   display: grid;
   grid-template-columns: 120px 1fr;
   grid-template-areas: 'image slider';
-  gap: 24px;
+  gap: 0;
   align-items: center;
   padding: 0 16px;
   color: #50545c;
@@ -75,6 +91,8 @@ export default {
 
     &__item {
       min-width: 100%;
+      padding-left: 18px;
+      padding-right: 8px;
       scroll-snap-align: start;
     }
   }
@@ -102,7 +120,7 @@ export default {
     flex-basis: 30%;
     height: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 
     &__button {
@@ -112,8 +130,25 @@ export default {
 }
 
 .section2 {
-  display: flex;
-  align-items: center;
+  width: 100%;
+  height: 100%;
+
+  &__buttons {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    &__button {
+      max-width: 90px;
+      max-height: 36px;
+      font-size: x-small;
+    }
+  }
+}
+
+.section3 {
   width: 100%;
   font-weight: bold;
   overflow: hidden;
