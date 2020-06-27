@@ -12,14 +12,15 @@
           <span>{{ playlist.name }}</span>
         </div>
 
-        <div class="section1__owner-name">
-          <i class="material-icons">person</i>
-          <span>{{ playlist.owner.name }}</span>
-        </div>
-
-        <div class="section1__followers-total">
-          <i class="material-icons">favorite</i>
-          <span>{{ playlist.followers.total }}</span>
+        <div class="section1__buttons">
+          <flat-icon-button
+            icon-name="play_arrow"
+            class="section1__buttons__button"
+          />
+          <flat-icon-button
+            icon-name="shuffle"
+            class="section1__buttons__button"
+          />
         </div>
       </section>
 
@@ -35,6 +36,7 @@
 <script>
 export default {
   components: {
+    FlatIconButton: () => import('~/components/FlatIconButton'),
     ImageSheet: () => import('~/components/neumorphism/ImageSheet')
   },
   props: {
@@ -67,6 +69,7 @@ export default {
     grid-area: slider;
     height: 100%;
     display: flex;
+    padding: 16px 0 8px;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
 
@@ -78,19 +81,15 @@ export default {
 }
 
 .section1 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 70% 1fr;
-  grid-template-areas: 'playlist-name playlist-name' 'owner-name followers-total';
-  gap: 1px 1px;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
   font-weight: bold;
 
   &__playlist-name {
-    grid-area: playlist-name;
-    font-size: larger;
+    flex-basis: 70%;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
-    text-overflow: ellipsis;
 
     & > span {
       display: -webkit-box;
@@ -99,21 +98,16 @@ export default {
     }
   }
 
-  &__owner-name {
-    grid-area: owner-name;
+  &__buttons {
+    flex-basis: 30%;
+    height: 100%;
     display: flex;
+    justify-content: space-around;
     align-items: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
 
-  &__followers-total {
-    grid-area: followers-total;
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    &__button {
+      max-width: 90px;
+    }
   }
 }
 
