@@ -41,6 +41,7 @@ export default {
   grid-template-areas: 'image track play' 'image artist play';
   gap: 4px 8px;
   align-items: center;
+  color: #50545c;
 
   &__image {
     grid-area: image;

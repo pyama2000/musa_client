@@ -23,6 +23,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #50545c;
   border-radius: 100%;
   box-shadow: 9.91px 9.91px 15px #d9dade, -9.91px -9.91px 15px #ffffff;
 

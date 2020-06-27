@@ -47,6 +47,7 @@ export default {
     width: 100%;
     margin-top: auto;
     padding: 0 8px;
+    color: #50545c;
     font-size: xx-small;
     font-weight: bold;
     text-align: center;

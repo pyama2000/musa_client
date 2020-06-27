@@ -38,6 +38,7 @@ export default {
 
   &__title {
     padding: 0 16px;
+    color: #50545c;
     font-size: larger;
     font-weight: bold;
   }

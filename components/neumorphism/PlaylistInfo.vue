@@ -55,6 +55,7 @@ export default {
   gap: 24px;
   align-items: center;
   padding: 0 16px;
+  color: #50545c;
 
   &__image {
     grid-area: image;
