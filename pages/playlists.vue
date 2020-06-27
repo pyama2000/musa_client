@@ -1,46 +1,22 @@
 <template>
-  <div class="page-playlists">
-    <h3>USER</h3>
-    <div class="page-playlists__playlists-user">
-      <div
-        v-for="(userPlaylist, i) in userPlaylists"
-        :key="i"
-        class="page-playlists__playlists-user__item"
-      >
-        <base-playlist-card
-          :id="userPlaylist.id"
-          :image-url="userPlaylist.image_url"
-          :name="userPlaylist.name"
-        />
-      </div>
-    </div>
-    <div class="page-playlists__playlists-followed">
-      <h3>FOLLOWED</h3>
-      <div
-        v-for="(followedPlaylist, i) in followedPlaylists"
-        :key="i"
-        class="page-playlists__playlists-followed__item"
-      >
-        <base-playlist-card
-          :id="followedPlaylist.id"
-          :description="followedPlaylist.description"
-          :image-url="followedPlaylist.image_url"
-          :name="followedPlaylist.name"
-        />
-      </div>
-    </div>
+  <div class="playlists">
+    <playlist-card-container :playlists="userPlaylists" title="My Playlists" />
+    <playlist-card-container
+      :playlists="followedPlaylists"
+      title="Following Playlists"
+    />
   </div>
 </template>
 
 <script>
-import BasePlaylistCard from '~/components/BasePlaylistCard'
-
 export default {
   components: {
-    BasePlaylistCard
+    PlaylistCardContainer: () =>
+      import('~/components/neumorphism/PlaylistCardContainer')
   },
   async asyncData({ $axios }) {
     const { data } = await $axios.get('/playlists')
+
     return {
       followedPlaylists: data.followed_playlists,
       userPlaylists: data.user_playlists
@@ -49,13 +25,20 @@ export default {
 }
 </script>
 
-<style lang="sass">
-.page-playlists__playlists-user
-  display: grid
-  grid-gap: 16px
-  // grid-template-columns: repeat(auto-fill,minmax(164px,1fr))
-  grid-template-columns: repeat(auto-fill,minmax(94px,1fr))
-  // grid-auto-rows: 1000px
-  // grid-template-rows: auto 1fr
-  overflow: hidden
+<style lang="scss" scoped>
+.playlist-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+  height: 160px;
+  padding: 16px;
+  border-radius: 19px;
+  background: #eef0f4;
+  box-shadow: 8px 8px 15px #c8cacd, -8px -8px 15px #ffffff;
+}
+
+.margin-spacer {
+  margin: 16px;
+}
 </style>

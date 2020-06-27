@@ -1,6 +1,9 @@
 <template>
-  <div class="playlist-card">
-    <image-sheet
+  <nuxt-link
+    :to="{ name: 'playlist', query: { playlistId: playlist.id } }"
+    class="playlist-card"
+  >
+    <img
       :src="playlist.image_url"
       alt="Playlist image"
       class="playlist-card__image"
@@ -8,14 +11,11 @@
     <div class="playlist-card__title">
       {{ playlist.name }}
     </div>
-  </div>
+  </nuxt-link>
 </template>
 
 <script>
 export default {
-  components: {
-    ImageSheet: () => import('~/components/neumorphism/ImageSheet')
-  },
   props: {
     playlist: {
       type: Object,
@@ -29,21 +29,25 @@ export default {
 .playlist-card {
   display: flex;
   flex-direction: column;
-  width: 120px;
-  min-width: 120px;
-  height: 160px;
-  padding: 24px 16px 16px;
-  background: #eef0f4;
+  align-items: center;
+  width: 90px;
+  min-width: 90px;
+  height: 120px;
+  padding: 8px 0;
   border-radius: 15px;
   box-shadow: 9.91px 9.91px 15px #d9dade, -9.91px -9.91px 15px #ffffff;
 
   &__image {
-    height: calc(120px - (16px * 2));
+    width: 90%;
+    height: auto;
+    padding: 0 2px;
   }
 
   &__title {
     width: 100%;
     margin-top: auto;
+    padding: 0 8px;
+    color: #50545c;
     font-size: xx-small;
     font-weight: bold;
     text-align: center;

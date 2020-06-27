@@ -18,13 +18,16 @@ export default {
 
 <style lang="scss" scoped>
 .icon-button {
-  padding: 12px;
-  background: #eef0f4;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #50545c;
   border-radius: 100%;
   box-shadow: 9.91px 9.91px 15px #d9dade, -9.91px -9.91px 15px #ffffff;
 
   &:active {
-    background: #eef0f4;
     border-radius: 100%;
     box-shadow: inset 9.91px 9.91px 15px #d9dade,
       inset -9.91px -9.91px 15px #ffffff;

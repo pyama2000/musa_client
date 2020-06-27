@@ -77,6 +77,7 @@ export default {
     grid-area: track-name;
     display: flex;
     align-self: center;
+    color: #50545c;
     font-weight: bold;
     overflow: hidden;
     text-overflow: ellipsis;
