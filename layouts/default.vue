@@ -33,5 +33,6 @@ export default {
 .link-button-container {
   margin-top: auto;
   margin-bottom: 16px;
+  padding: 0 16px;
 }
 </style>
