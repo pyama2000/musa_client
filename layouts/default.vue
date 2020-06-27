@@ -17,16 +17,17 @@ export default {
 
 <style lang="scss" scoped>
 .layout {
+  height: -webkit-fill-available;
   display: flex;
   flex-direction: column;
-  height: -webkit-fill-available;
   background: #eef0f4;
 }
 
 .page {
+  min-height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 16px 0;
+  padding: 16px 0 24px;
 }
 
 .link-button-container {
