@@ -18,11 +18,10 @@
         class="playlist-info__slider__item"
       />
 
-      <section class="playlist-info__slider__item section3">
-        <div class="section3__description">
-          <span>{{ playlist.description }}</span>
-        </div>
-      </section>
+      <section-detail
+        :playlist-description="playlist.description"
+        class="playlist-info__slider__item"
+      />
     </div>
   </div>
 </template>
@@ -33,6 +32,8 @@ export default {
     SectionMain: () => import('~/components/playlist/info_card/SectionMain'),
     SectionFeatures: () =>
       import('~/components/playlist/info_card/SectionFeatures'),
+    SectionDetail: () =>
+      import('~/components/playlist/info_card/SectionDetail'),
     ImageSheet: () => import('~/components/ImageSheet')
   },
   props: {
@@ -76,12 +77,5 @@ export default {
       scroll-snap-align: start;
     }
   }
-}
-
-.section3 {
-  width: 100%;
-  font-weight: bold;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 </style>
