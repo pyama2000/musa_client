@@ -13,9 +13,9 @@
     </span>
 
     <div class="login-card__actions">
-      <bump-card class="login-card__actions__login">
-        <a :href="url">login with spotify</a>
-      </bump-card>
+      <square-button @click.native="login" class="login-card__actions__login">
+        login with spotify
+      </square-button>
     </div>
   </bump-card>
 </template>
@@ -25,7 +25,8 @@ export default {
   layout: 'login',
   components: {
     BumpCard: () => import('~/components/base/BumpCard.vue'),
-    Logo: () => import('~/components/Logo.vue')
+    Logo: () => import('~/components/Logo.vue'),
+    SquareButton: () => import('~/components/base/SquareButton')
   },
   data() {
     return {
@@ -36,6 +37,11 @@ export default {
     await this.$axios.get('/auth').then(({ data }) => {
       this.url = data.url
     })
+  },
+  methods: {
+    login() {
+      location.href = this.url
+    }
   }
 }
 </script>
