@@ -47,6 +47,11 @@ export default {
   border-radius: 50px;
   box-shadow: 9.91px 9.91px 15px #d9dade, -9.91px -9.91px 15px #ffffff;
 
+  &:active {
+    box-shadow: inset 9.91px 9.91px 15px #d9dade,
+      inset -9.91px -9.91px 15px #ffffff;
+  }
+
   &--active {
     @extend .link-button;
     pointer-events: none;

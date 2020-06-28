@@ -1,6 +1,7 @@
 <template>
   <div class="playlist">
     <playlist-info :playlist="playlist" />
+    <div class="buttons"></div>
     <div class="margin-spacer" />
     <track-list :tracks="tracks" />
   </div>
