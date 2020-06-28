@@ -13,7 +13,7 @@
         </div>
 
         <div class="section1__buttons">
-          <base-button class="section1__buttons__button">
+          <base-button @click.native="play" class="section1__buttons__button">
             <i class="material-icons">play_arrow</i>
           </base-button>
 
@@ -26,12 +26,13 @@
       <section class="playlist-info__slider__item section2">
         <div class="section2__buttons">
           <base-button
-            v-for="(feature, i) in features"
+            v-for="(f, i) in features"
             :key="i"
-            :style="{ color: fontColor(feature) }"
+            :style="{ color: fontColor(f) }"
+            @click.native="feature(f)"
             class="section2__buttons__button"
           >
-            <span>{{ feature }}</span>
+            <span>{{ f }}</span>
           </base-button>
         </div>
       </section>
@@ -71,6 +72,11 @@ export default {
           return '#50545c'
         }
       }
+    }
+  },
+  methods: {
+    feature(f) {
+      console.log(f)
     }
   }
 }
