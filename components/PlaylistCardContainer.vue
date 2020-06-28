@@ -1,5 +1,5 @@
 <template>
-  <div class="playlist-card-container">
+  <dent-card class="playlist-card-container">
     <div class="playlist-card-container__title">
       <span>{{ title }}</span>
     </div>
@@ -10,13 +10,14 @@
         :playlist="playlist"
       />
     </div>
-  </div>
+  </dent-card>
 </template>
 
 <script>
 export default {
   components: {
-    PlaylistCard: () => import('~/components/PlaylistCard')
+    DentCard: () => import('~/components/base/DentCard'),
+    PlaylistCard: () => import('~/components/playlist/PlaylistCard')
   },
   props: {
     title: {
@@ -35,6 +36,8 @@ export default {
 .playlist-card-container {
   display: flex;
   flex-direction: column;
+  margin: 0 16px;
+  padding: 12px 0;
 
   &__title {
     padding: 0 16px;
@@ -45,28 +48,27 @@ export default {
 
   &__list {
     display: flex;
-    padding: 24px 16px;
+    padding: 12px 16px;
     overflow: scroll;
     -webkit-overflow-scrolling: touch;
 
-    & > .playlist-card {
-      margin: 0 12px;
+    & > * {
+      margin-left: 12px;
     }
 
-    & > .playlist-card:first-child {
+    & > *:first-child {
       margin-left: 0;
     }
 
-    & > .playlist-card:last-child {
+    & > *:last-child {
       position: relative;
-      margin-right: 0;
     }
 
-    & > .playlist-card:last-child:after {
+    & > *:last-child:after {
       position: absolute;
       top: 0;
       left: 100%;
-      width: 1.5em;
+      width: 16px;
       height: 1px;
       content: '';
     }

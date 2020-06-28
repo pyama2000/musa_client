@@ -1,21 +1,23 @@
 <template>
-  <nuxt-link
-    :to="{ name: 'playlist', query: { playlistId: playlist.id } }"
-    class="playlist-card"
-  >
-    <img
-      :src="playlist.image_url"
-      alt="Playlist image"
-      class="playlist-card__image"
-    />
-    <div class="playlist-card__title">
-      {{ playlist.name }}
-    </div>
+  <nuxt-link :to="{ path: 'playlist', query: { playlistId: playlist.id } }">
+    <bump-card class="playlist-card">
+      <img
+        :src="playlist.image_url"
+        alt="Playlist image"
+        class="playlist-card__image"
+      />
+      <div class="playlist-card__title">
+        {{ playlist.name }}
+      </div>
+    </bump-card>
   </nuxt-link>
 </template>
 
 <script>
 export default {
+  components: {
+    BumpCard: () => import('~/components/base/BumpCard')
+  },
   props: {
     playlist: {
       type: Object,
@@ -33,9 +35,8 @@ export default {
   width: 90px;
   min-width: 90px;
   height: 120px;
+  transition: all 0.2s ease;
   padding: 8px 0;
-  border-radius: 15px;
-  box-shadow: 9.91px 9.91px 15px #d9dade, -9.91px -9.91px 15px #ffffff;
 
   &__image {
     width: 90%;
@@ -54,6 +55,10 @@ export default {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+
+  &:active {
+    box-shadow: $dent-shadow;
   }
 }
 </style>
