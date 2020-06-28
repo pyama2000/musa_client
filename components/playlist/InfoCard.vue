@@ -1,6 +1,6 @@
 <template>
   <div class="playlist-info">
-    <image-sheet
+    <image-card
       :src="playlist.image.url"
       alt="Playlist image"
       class="playlist-info__image"
@@ -13,8 +13,8 @@
 <script>
 export default {
   components: {
-    Slider: () => import('~/components/playlist/info_card/Slider'),
-    ImageSheet: () => import('~/components/ImageSheet')
+    Slider: () => import('./info_card/Slider'),
+    ImageCard: () => import('~/components/base/ImageCard')
   },
   props: {
     playlist: {

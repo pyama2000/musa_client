@@ -1,6 +1,6 @@
 <template>
   <div class="playlist">
-    <playlist-info :playlist="playlist" />
+    <info-card :playlist="playlist" />
     <div class="buttons"></div>
     <div class="margin-spacer" />
     <track-list :tracks="tracks" />
@@ -10,7 +10,7 @@
 <script>
 export default {
   components: {
-    PlaylistInfo: () => import('~/components/PlaylistInfo'),
+    InfoCard: () => import('~/components/playlist/InfoCard'),
     TrackList: () => import('~/components/TrackList')
   },
   async asyncData({ $axios, store, route }) {
