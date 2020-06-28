@@ -1,13 +1,13 @@
 <template>
-  <dent-card class="image-card">
+  <bump-card class="image-card">
     <img :src="src" :alt="alt" class="image-card__image" />
-  </dent-card>
+  </bump-card>
 </template>
 
 <script>
 export default {
   components: {
-    DentCard: () => import('~/components/base/DentCard')
+    BumpCard: () => import('~/components/base/BumpCard')
   },
   props: {
     src: {

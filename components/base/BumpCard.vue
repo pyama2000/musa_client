@@ -1,11 +1,11 @@
 <template>
-  <div class="card--dent">
+  <div class="card--bump">
     <slot></slot>
   </div>
 </template>
 
 <style lang="scss">
-.card--dent {
+.card--bump {
   color: $color;
   background-color: $background;
   border-radius: 0.55rem;
