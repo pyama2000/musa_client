@@ -11,8 +11,7 @@
 <script>
 export default {
   components: {
-    PlaylistCardContainer: () =>
-      import('~/components/neumorphism/PlaylistCardContainer')
+    PlaylistCardContainer: () => import('~/components/PlaylistCardContainer')
   },
   async asyncData({ $axios }) {
     const { data } = await $axios.get('/playlists')

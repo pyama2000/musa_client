@@ -19,9 +19,8 @@ export default {
     }
   },
   components: {
-    Player: () => import('~/components/neumorphism/Player'),
-    PlaylistCardContainer: () =>
-      import('~/components/neumorphism/PlaylistCardContainer')
+    Player: () => import('~/components/Player'),
+    PlaylistCardContainer: () => import('~/components/PlaylistCardContainer')
   },
   async asyncData({ $axios }) {
     let currentPlayingTrack = null

@@ -12,7 +12,7 @@
 <script>
 export default {
   components: {
-    PlayTrack: () => import('~/components/neumorphism/PlayTrack')
+    PlayTrack: () => import('~/components/PlayTrack')
   },
   props: {
     tracks: {

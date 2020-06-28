@@ -52,8 +52,8 @@
 <script>
 export default {
   components: {
-    BaseButton: () => import('~/components/neumorphism/BaseButton'),
-    ImageSheet: () => import('~/components/neumorphism/ImageSheet')
+    BaseButton: () => import('~/components/BaseButton'),
+    ImageSheet: () => import('~/components/ImageSheet')
   },
   props: {
     playlist: {

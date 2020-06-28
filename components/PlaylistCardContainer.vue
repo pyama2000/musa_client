@@ -16,7 +16,7 @@
 <script>
 export default {
   components: {
-    PlaylistCard: () => import('~/components/neumorphism/PlaylistCard')
+    PlaylistCard: () => import('~/components/PlaylistCard')
   },
   props: {
     title: {

@@ -19,8 +19,8 @@
 <script>
 export default {
   components: {
-    IconButton: () => import('~/components/neumorphism/IconButton'),
-    ImageSheet: () => import('~/components/neumorphism/ImageSheet')
+    IconButton: () => import('~/components/IconButton'),
+    ImageSheet: () => import('~/components/ImageSheet')
   },
   props: {
     object: {

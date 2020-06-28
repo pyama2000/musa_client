@@ -9,7 +9,7 @@
 <script>
 export default {
   components: {
-    LinkButton: () => import('~/components/neumorphism/LinkButton')
+    LinkButton: () => import('~/components/LinkButton')
   },
   data() {
     return {

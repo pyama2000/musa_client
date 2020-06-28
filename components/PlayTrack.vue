@@ -21,7 +21,7 @@
 <script>
 export default {
   components: {
-    IconButton: () => import('~/components/neumorphism/IconButton')
+    IconButton: () => import('~/components/IconButton')
   },
   props: {
     track: {

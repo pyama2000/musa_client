@@ -10,8 +10,8 @@
 <script>
 export default {
   components: {
-    PlaylistInfo: () => import('~/components/neumorphism/PlaylistInfo'),
-    TrackList: () => import('~/components/neumorphism/TrackList')
+    PlaylistInfo: () => import('~/components/PlaylistInfo'),
+    TrackList: () => import('~/components/TrackList')
   },
   async asyncData({ $axios, store, route }) {
     const playlistId = route.query.playlistId
