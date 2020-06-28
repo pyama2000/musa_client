@@ -1,30 +1,31 @@
 <template>
-  <div class="index">
-    <v-card class="mx-auto index__card">
-      <v-card-title>
-        <logo />
-      </v-card-title>
+  <bump-card class="login-card">
+    <div class="login-card__header">
+      <logo class="login-card__header__logo" />
 
-      <v-card-text class="headline font-weight-light">
-        Musa is user friendly interface for playing music with Spotify
-      </v-card-text>
+      <span class="login-card__header__title">
+        Musa
+      </span>
+    </div>
 
-      <v-card-actions>
-        <v-btn :href="url" class="index__card__btn" color="teal accent-4" text>
-          LOGIN WITH SPOTIFY
-        </v-btn>
-      </v-card-actions>
-    </v-card>
-  </div>
+    <span class="login-card__description">
+      Musa is user friendly interface for playing music with Spotify
+    </span>
+
+    <div class="login-card__actions">
+      <bump-card class="login-card__actions__login">
+        <a :href="url">login with spotify</a>
+      </bump-card>
+    </div>
+  </bump-card>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-
 export default {
   layout: 'login',
   components: {
-    Logo
+    BumpCard: () => import('~/components/base/BumpCard.vue'),
+    Logo: () => import('~/components/Logo.vue')
   },
   data() {
     return {
@@ -39,14 +40,61 @@ export default {
 }
 </script>
 
-<style lang="sass">
-.index
-  margin: auto
-  &__card
-    max-width: 90%
-    &__btn
-      margin-left: auto
+<style lang="scss" scoped>
+.login-card {
+  width: 100%;
+  max-width: 600px;
+  display: grid;
+  grid-template-rows: 80px 1fr 1fr;
+  grid-template-areas: 'header' 'description' 'action';
+  margin: 0 16px;
+  padding: 16px;
 
-.logo
-  margin: 16px 16px 16px 0
+  &__header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+
+    &__logo {
+      width: 80px;
+      height: 80px;
+    }
+
+    &__title {
+      padding-left: 24px;
+      font-size: 2.5em;
+    }
+  }
+
+  &__description {
+    grid-area: description;
+    display: flex;
+    align-items: center;
+    padding: 24px 0;
+    font-size: large;
+    font-weight: bold;
+    letter-spacing: 0.005em;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+
+    &__login {
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: auto;
+      padding: 0 12px;
+      font-size: small;
+      font-weight: bold;
+      text-transform: uppercase;
+
+      &:active {
+        box-shadow: $dent-shadow;
+      }
+    }
+  }
+}
 </style>
