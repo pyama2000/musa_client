@@ -20,7 +20,8 @@ export default {
   },
   components: {
     Player: () => import('~/components/Player'),
-    PlaylistCardContainer: () => import('~/components/PlaylistCardContainer')
+    PlaylistCardContainer: () =>
+      import('~/components/playlist/PlaylistCardContainer')
   },
   async asyncData({ $axios }) {
     let currentPlayingTrack = null

@@ -8,6 +8,7 @@
         v-for="(playlist, i) in playlists"
         :key="i"
         :playlist="playlist"
+        class="playlist-card-container__list__item"
       />
     </div>
   </dent-card>
@@ -17,7 +18,7 @@
 export default {
   components: {
     DentCard: () => import('~/components/base/DentCard'),
-    PlaylistCard: () => import('~/components/playlist/PlaylistCard')
+    PlaylistCard: () => import('./PlaylistCard')
   },
   props: {
     title: {
@@ -56,15 +57,15 @@ export default {
       margin-left: 12px;
     }
 
-    & > *:first-child {
+    & > &__item:first-child {
       margin-left: 0;
     }
 
-    & > *:last-child {
+    & > &__item:last-child {
       position: relative;
     }
 
-    & > *:last-child:after {
+    & > &__item:last-child:after {
       position: absolute;
       top: 0;
       left: 100%;

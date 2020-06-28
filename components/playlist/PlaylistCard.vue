@@ -29,14 +29,14 @@ export default {
 
 <style lang="scss" scoped>
 .playlist-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   width: 90px;
   min-width: 90px;
   height: 120px;
-  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 8px 0;
+  transition: all 0.2s ease;
 
   &__image {
     width: 90%;
@@ -48,7 +48,7 @@ export default {
     width: 100%;
     margin-top: auto;
     padding: 0 8px;
-    color: #50545c;
+    color: $color;
     font-size: xx-small;
     font-weight: bold;
     text-align: center;

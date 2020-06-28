@@ -11,7 +11,8 @@
 <script>
 export default {
   components: {
-    PlaylistCardContainer: () => import('~/components/PlaylistCardContainer')
+    PlaylistCardContainer: () =>
+      import('~/components/playlist/PlaylistCardContainer')
   },
   async asyncData({ $axios }) {
     const { data } = await $axios.get('/playlists')
