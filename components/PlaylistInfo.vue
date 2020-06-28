@@ -13,19 +13,10 @@
         class="playlist-info__slider__item"
       />
 
-      <section class="playlist-info__slider__item section2">
-        <div class="section2__buttons">
-          <base-button
-            v-for="(f, i) in features"
-            :key="i"
-            :style="{ color: fontColor(f) }"
-            @click.native="feature(f)"
-            class="section2__buttons__button"
-          >
-            <span>{{ f }}</span>
-          </base-button>
-        </div>
-      </section>
+      <section-features
+        :playlist-uri="playlist.uri"
+        class="playlist-info__slider__item"
+      />
 
       <section class="playlist-info__slider__item section3">
         <div class="section3__description">
@@ -40,7 +31,8 @@
 export default {
   components: {
     SectionMain: () => import('~/components/playlist/info_card/SectionMain'),
-    BaseButton: () => import('~/components/BaseButton'),
+    SectionFeatures: () =>
+      import('~/components/playlist/info_card/SectionFeatures'),
     ImageSheet: () => import('~/components/ImageSheet')
   },
   props: {
@@ -48,27 +40,6 @@ export default {
       type: Object,
       required: true
     }
-  },
-  data() {
-    return {
-      features: ['marge', 'snapshot', 'queue', 'delete']
-    }
-  },
-  computed: {
-    fontColor() {
-      return function(feature) {
-        if (feature === 'delete') {
-          return '#e53a40'
-        } else {
-          return '#50545c'
-        }
-      }
-    }
-  },
-  methods: {
-    start() {},
-    shuffle() {},
-    feature(f) {}
   }
 }
 </script>
@@ -103,56 +74,6 @@ export default {
       padding-left: 18px;
       padding-right: 8px;
       scroll-snap-align: start;
-    }
-  }
-}
-
-.section1 {
-  display: flex;
-  flex-direction: column;
-  font-weight: bold;
-
-  &__playlist-name {
-    flex-basis: 70%;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-
-    & > span {
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 3;
-    }
-  }
-
-  &__buttons {
-    flex-basis: 30%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    &__button {
-      max-width: 90px;
-    }
-  }
-}
-
-.section2 {
-  width: 100%;
-  height: 100%;
-
-  &__buttons {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-
-    &__button {
-      max-width: 90px;
-      max-height: 36px;
-      font-size: x-small;
     }
   }
 }
