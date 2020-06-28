@@ -12,16 +12,17 @@
     <div class="play-track__artist">
       <span>{{ track.artist.name }}</span>
     </div>
-    <div class="play-track__play">
-      <icon-button icon-name="play_arrow" />
-    </div>
+
+    <round-button class="play-track__play">
+      <i class="material-icons">play_arrow</i>
+    </round-button>
   </div>
 </template>
 
 <script>
 export default {
   components: {
-    IconButton: () => import('~/components/IconButton')
+    RoundButton: () => import('~/components/base/RoundButton')
   },
   props: {
     track: {
@@ -36,17 +37,15 @@ export default {
 .play-track {
   height: 60px;
   display: grid;
-  grid-template-columns: 60px 1fr 50px;
+  grid-template-columns: 34px 1fr 34px;
   grid-template-rows: 60% 1fr;
   grid-template-areas: 'image track play' 'image artist play';
   gap: 4px 8px;
   align-items: center;
-  color: #50545c;
 
   &__image {
     grid-area: image;
     height: 100%;
-    justify-self: center;
   }
 
   &__track {
@@ -67,6 +66,8 @@ export default {
   }
 
   &__play {
+    width: 34px;
+    height: 34px;
     grid-area: play;
     justify-self: end;
   }
