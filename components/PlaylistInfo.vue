@@ -7,24 +7,11 @@
     />
 
     <div class="playlist-info__slider">
-      <section class="playlist-info__slider__item section1">
-        <div class="section1__playlist-name">
-          <span>{{ playlist.name }}</span>
-        </div>
-
-        <div class="section1__buttons">
-          <base-button @click.native="start" class="section1__buttons__button">
-            <i class="material-icons">play_arrow</i>
-          </base-button>
-
-          <base-button
-            @click.native="shuffle"
-            class="section1__buttons__button"
-          >
-            <i class="material-icons">shuffle</i>
-          </base-button>
-        </div>
-      </section>
+      <section-main
+        :playlist-name="playlist.name"
+        :playlist-id="playlist.id"
+        class="playlist-info__slider__item"
+      />
 
       <section class="playlist-info__slider__item section2">
         <div class="section2__buttons">
@@ -52,6 +39,7 @@
 <script>
 export default {
   components: {
+    SectionMain: () => import('~/components/playlist/info_card/SectionMain'),
     BaseButton: () => import('~/components/BaseButton'),
     ImageSheet: () => import('~/components/ImageSheet')
   },
