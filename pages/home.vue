@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <player :object="currentPlayingTrack" />
-    <div class="margin-spacer" />
+    <player v-if="currentPlayingTrack !== null" :object="currentPlayingTrack" />
+
     <playlist-card-container
       :playlists="playlists"
       title="Featured Playlists"
@@ -19,9 +19,9 @@ export default {
     }
   },
   components: {
-    Player: () => import('~/components/neumorphism/Player'),
+    Player: () => import('~/components/Player'),
     PlaylistCardContainer: () =>
-      import('~/components/neumorphism/PlaylistCardContainer')
+      import('~/components/playlist/PlaylistCardContainer')
   },
   async asyncData({ $axios }) {
     let currentPlayingTrack = null
@@ -53,9 +53,7 @@ export default {
 
 <style lang="scss" scoped>
 .player {
+  margin-bottom: 16px;
   padding: 0 16px;
-}
-.margin-spacer {
-  margin: 18px 0;
 }
 </style>

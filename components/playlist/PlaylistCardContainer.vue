@@ -1,5 +1,5 @@
 <template>
-  <div class="playlist-card-container">
+  <dent-card class="playlist-card-container">
     <div class="playlist-card-container__title">
       <span>{{ title }}</span>
     </div>
@@ -8,15 +8,17 @@
         v-for="(playlist, i) in playlists"
         :key="i"
         :playlist="playlist"
+        class="playlist-card-container__list__item"
       />
     </div>
-  </div>
+  </dent-card>
 </template>
 
 <script>
 export default {
   components: {
-    PlaylistCard: () => import('~/components/neumorphism/PlaylistCard')
+    DentCard: () => import('~/components/base/DentCard'),
+    PlaylistCard: () => import('./PlaylistCard')
   },
   props: {
     title: {
@@ -35,38 +37,39 @@ export default {
 .playlist-card-container {
   display: flex;
   flex-direction: column;
+  margin: 0 16px;
+  padding: 12px 0;
 
   &__title {
     padding: 0 16px;
-    color: #50545c;
+    color: $color;
     font-size: larger;
     font-weight: bold;
   }
 
   &__list {
     display: flex;
-    padding: 24px 16px;
+    padding: 12px 16px;
     overflow: scroll;
     -webkit-overflow-scrolling: touch;
 
-    & > .playlist-card {
-      margin: 0 12px;
+    & > * {
+      margin-left: 12px;
     }
 
-    & > .playlist-card:first-child {
+    & > &__item:first-child {
       margin-left: 0;
     }
 
-    & > .playlist-card:last-child {
+    & > &__item:last-child {
       position: relative;
-      margin-right: 0;
     }
 
-    & > .playlist-card:last-child:after {
+    & > &__item:last-child:after {
       position: absolute;
       top: 0;
       left: 100%;
-      width: 1.5em;
+      width: 16px;
       height: 1px;
       content: '';
     }

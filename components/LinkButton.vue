@@ -39,24 +39,23 @@ export default {
 <style lang="scss" scoped>
 .link-button {
   width: 100px;
-  height: 50px;
+  height: 42px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #f6a657;
-  border-radius: 50px;
-  box-shadow: 9.91px 9.91px 15px #d9dade, -9.91px -9.91px 15px #ffffff;
+  color: $color;
+  background: $background;
+  border-radius: 0.55rem;
+  box-shadow: $bump-shadow;
 
   &:active {
-    box-shadow: inset 9.91px 9.91px 15px #d9dade,
-      inset -9.91px -9.91px 15px #ffffff;
+    box-shadow: $dent-shadow;
   }
 
   &--active {
     @extend .link-button;
     pointer-events: none;
-    box-shadow: inset 9.91px 9.91px 15px #d9dade,
-      inset -9.91px -9.91px 15px #ffffff;
+    box-shadow: $dent-shadow;
   }
 }
 </style>

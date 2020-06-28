@@ -9,8 +9,7 @@
 <script>
 export default {
   components: {
-    LinkButtonContainer: () =>
-      import('~/components/neumorphism/LinkButtonContainer')
+    LinkButtonContainer: () => import('~/components/LinkButtonContainer')
   }
 }
 </script>
@@ -20,7 +19,8 @@ export default {
   height: -webkit-fill-available;
   display: flex;
   flex-direction: column;
-  background: #eef0f4;
+  color: $color;
+  background: $background;
 }
 
 .page {

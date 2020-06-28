@@ -1,10 +1,17 @@
 <template>
   <div class="playlists">
-    <playlist-card-container :playlists="userPlaylists" title="My Playlists" />
-    <playlist-card-container
-      :playlists="followedPlaylists"
-      title="Following Playlists"
-    />
+    <div class="playlists__containers">
+      <playlist-card-container
+        :playlists="userPlaylists"
+        title="My Playlists"
+        class="playlists__containers__item"
+      />
+
+      <playlist-card-container
+        :playlists="followedPlaylists"
+        title="Following Playlists"
+      />
+    </div>
   </div>
 </template>
 
@@ -12,7 +19,7 @@
 export default {
   components: {
     PlaylistCardContainer: () =>
-      import('~/components/neumorphism/PlaylistCardContainer')
+      import('~/components/playlist/PlaylistCardContainer')
   },
   async asyncData({ $axios }) {
     const { data } = await $axios.get('/playlists')
@@ -26,19 +33,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.playlist-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-content: space-around;
-  height: 160px;
-  padding: 16px;
-  border-radius: 19px;
-  background: #eef0f4;
-  box-shadow: 8px 8px 15px #c8cacd, -8px -8px 15px #ffffff;
-}
+.playlists {
+  &__containers {
+    & > &__item {
+      margin-bottom: 16px;
+    }
 
-.margin-spacer {
-  margin: 16px;
+    & > &__item:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 </style>
