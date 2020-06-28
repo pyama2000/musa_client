@@ -13,11 +13,14 @@
         </div>
 
         <div class="section1__buttons">
-          <base-button @click.native="play" class="section1__buttons__button">
+          <base-button @click.native="start" class="section1__buttons__button">
             <i class="material-icons">play_arrow</i>
           </base-button>
 
-          <base-button class="section1__buttons__button">
+          <base-button
+            @click.native="shuffle"
+            class="section1__buttons__button"
+          >
             <i class="material-icons">shuffle</i>
           </base-button>
         </div>
@@ -75,9 +78,9 @@ export default {
     }
   },
   methods: {
-    feature(f) {
-      console.log(f)
-    }
+    start() {},
+    shuffle() {},
+    feature(f) {}
   }
 }
 </script>
