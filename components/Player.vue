@@ -1,5 +1,5 @@
 <template>
-  <div v-if="object !== null" class="player">
+  <div class="player">
     <image-card
       :src="object.track.image"
       alt="Album image"
