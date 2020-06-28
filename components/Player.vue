@@ -1,6 +1,6 @@
 <template>
   <div v-if="object !== null" class="player">
-    <image-sheet
+    <image-card
       :src="object.track.image"
       alt="Album image"
       class="player__image"
@@ -9,9 +9,20 @@
       <span>{{ object.track.name }}</span>
     </div>
     <div class="player__buttons">
-      <icon-button @click.native="skipPrevious" icon-name="skip_previous" />
-      <icon-button @click.native="pauseResume" :icon-name="getPauseResume" />
-      <icon-button @click.native="skipNext" icon-name="skip_next" />
+      <round-button
+        @click.native="skipPrevious"
+        class="player__buttons__button"
+      >
+        <i class="material-icons">skip_previous</i>
+      </round-button>
+
+      <round-button @click.native="pauseResume" class="player__buttons__button">
+        <i class="material-icons">{{ getPauseResume }}</i>
+      </round-button>
+
+      <round-button @click.native="skipNext" class="player__buttons__button">
+        <i class="material-icons">skip_next</i>
+      </round-button>
     </div>
   </div>
 </template>
@@ -19,8 +30,8 @@
 <script>
 export default {
   components: {
-    IconButton: () => import('~/components/IconButton'),
-    ImageSheet: () => import('~/components/ImageSheet')
+    ImageCard: () => import('~/components/base/ImageCard'),
+    RoundButton: () => import('~/components/base/RoundButton')
   },
   props: {
     object: {
@@ -65,7 +76,6 @@ export default {
   grid-template-areas: 'image track-name' 'image buttons';
   height: 120px;
   align-items: center;
-  background: #eef0f4;
 
   &__image {
     grid-area: image;
@@ -77,7 +87,6 @@ export default {
     grid-area: track-name;
     display: flex;
     align-self: center;
-    color: #50545c;
     font-weight: bold;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -93,6 +102,11 @@ export default {
     grid-area: buttons;
     display: flex;
     justify-content: space-between;
+
+    &__button {
+      width: 42px;
+      height: 42px;
+    }
   }
 }
 </style>
