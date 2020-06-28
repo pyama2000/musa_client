@@ -6,34 +6,14 @@
       class="playlist-info__image"
     />
 
-    <div class="playlist-info__slider">
-      <section-main
-        :playlist-name="playlist.name"
-        :playlist-id="playlist.id"
-        class="playlist-info__slider__item"
-      />
-
-      <section-features
-        :playlist-uri="playlist.uri"
-        class="playlist-info__slider__item"
-      />
-
-      <section-detail
-        :playlist-description="playlist.description"
-        class="playlist-info__slider__item"
-      />
-    </div>
+    <slider :playlist="playlist" class="playlist-info__slider" />
   </div>
 </template>
 
 <script>
 export default {
   components: {
-    SectionMain: () => import('~/components/playlist/info_card/SectionMain'),
-    SectionFeatures: () =>
-      import('~/components/playlist/info_card/SectionFeatures'),
-    SectionDetail: () =>
-      import('~/components/playlist/info_card/SectionDetail'),
+    Slider: () => import('~/components/playlist/info_card/Slider'),
     ImageSheet: () => import('~/components/ImageSheet')
   },
   props: {
@@ -64,18 +44,6 @@ export default {
 
   &__slider {
     grid-area: slider;
-    height: 100%;
-    display: flex;
-    padding: 16px 0 8px;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-
-    &__item {
-      min-width: 100%;
-      padding-left: 18px;
-      padding-right: 8px;
-      scroll-snap-align: start;
-    }
   }
 }
 </style>
