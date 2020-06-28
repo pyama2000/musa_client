@@ -34,7 +34,6 @@ export default {
   gap: 0;
   align-items: center;
   padding: 0 16px;
-  color: #50545c;
 
   &__image {
     grid-area: image;

@@ -36,7 +36,7 @@ export default {
         if (feature === 'delete') {
           return '#e53a40'
         } else {
-          return '#50545c'
+          return '#31344b'
         }
       }
     }
