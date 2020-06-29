@@ -1,21 +1,38 @@
 <template>
-  <v-app dark>
-    <the-header />
-    <nuxt class="nuxt__pages" />
-  </v-app>
+  <div class="layout">
+    <nuxt class="page" />
+
+    <link-button-container class="link-button-container" />
+  </div>
 </template>
 
 <script>
-import TheHeader from '~/components/TheHeader'
-
 export default {
   components: {
-    TheHeader
+    LinkButtonContainer: () => import('~/components/LinkButtonContainer')
   }
 }
 </script>
 
-<style lang="sass">
-.nuxt__pages
-  padding: 16px
+<style lang="scss" scoped>
+.layout {
+  height: -webkit-fill-available;
+  display: flex;
+  flex-direction: column;
+  color: $color;
+  background: $background;
+}
+
+.page {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 0 36px;
+}
+
+.link-button-container {
+  margin-top: auto;
+  margin-bottom: 16px;
+  padding: 0 16px;
+}
 </style>

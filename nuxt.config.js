@@ -6,8 +6,7 @@ export default {
    ** Headers of the page
    */
   head: {
-    titleTemplate: '%s - ' + process.env.npm_package_name,
-    title: process.env.npm_package_name || '',
+    title: 'Musa',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -17,7 +16,13 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/icon?family=Material+Icons'
+      }
+    ]
   },
   /*
    ** Customize the progress-bar color
@@ -26,7 +31,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['destyle.css'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -45,7 +50,8 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
+    '@nuxtjs/style-resources'
   ],
   /*
    ** Nuxt.js modules
@@ -59,7 +65,18 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: process.env.BASE_URL || 'http://0.0.0.0:8000'
+    // baseURL: process.env.BASE_URL || 'http://0.0.0.0:8000',
+    prefix: '/api',
+    proxy: true,
+    credentials: true
+  },
+  proxy: {
+    '/api/': {
+      target: process.env.BASE_API_URL || 'http://localhost:8000',
+      pathRewrite: {
+        '^/api/': ''
+      }
+    }
   },
   /*
    ** vuetify module configuration
@@ -81,6 +98,9 @@ export default {
         }
       }
     }
+  },
+  styleResources: {
+    scss: ['./assets/styles/variables.scss']
   },
   /*
    ** Build configuration

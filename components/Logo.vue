@@ -1,26 +1,29 @@
 <template>
-  <div class="logo">
+  <dent-card class="logo">
     <div class="logo__mark" />
-    <span class="logo__title">Musa</span>
-  </div>
+  </dent-card>
 </template>
 
-<style lang="sass">
-.logo
-  display: flex
-  align-items: center
-  flex-wrap: wrap
-  font-size: 1.25rem
-  font-weight: 500
-  letter-spacing: 0.0125em
-  line-height: 2rem
-  word-break: break-all
-  &__mark
-    margin-right: 16px
-    width: 30px
-    height: 30px
-    border-radius: 30px
-    background: linear-gradient(#00c9ff, #92fe9d)
-  &__title
-    font-size: 2rem
+<script>
+export default {
+  components: {
+    DentCard: () => import('~/components/base/DentCard.vue')
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+
+  &__mark {
+    width: 85%;
+    height: 85%;
+    background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+    border-radius: 100%;
+  }
+}
 </style>
