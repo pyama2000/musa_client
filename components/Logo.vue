@@ -22,7 +22,7 @@ export default {
   &__mark {
     width: 85%;
     height: 85%;
-    background: linear-gradient(#00c9ff, #92fe9d);
+    background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
     border-radius: 100%;
   }
 }
