@@ -6,14 +6,14 @@
 
     <div class="section__main__buttons">
       <square-button
-        @click.native="play"
+        @click.native="play(playlistUri)"
         class="section__main__buttons__button"
       >
         <i class="material-icons">play_arrow</i>
       </square-button>
 
       <square-button
-        @click.native="shuffle"
+        @click.native="shuffle(playlistUri)"
         class="section__main__buttons__button"
       >
         <i class="material-icons">shuffle</i>
@@ -32,14 +32,26 @@ export default {
       type: String,
       required: true
     },
-    playlistId: {
+    playlistUri: {
       type: String,
       required: true
     }
   },
   methods: {
-    play() {},
-    shuffle() {}
+    async play(playlistUri) {
+      await this.$axios.put('/player/shuffle?state=false')
+
+      await this.$axios.put('/player/start', {
+        context_uri: playlistUri
+      })
+    },
+    async shuffle(playlistUri) {
+      await this.$axios.put('/player/shuffle?state=true')
+
+      await this.$axios.put('/player/start', {
+        context_uri: playlistUri
+      })
+    }
   }
 }
 </script>

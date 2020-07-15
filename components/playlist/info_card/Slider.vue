@@ -2,7 +2,7 @@
   <div class="slider">
     <section-main
       :playlist-name="playlist.name"
-      :playlist-id="playlist.id"
+      :playlist-uri="playlist.uri"
       class="slider__item"
     />
 
