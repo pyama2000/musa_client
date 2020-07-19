@@ -2,13 +2,13 @@
   <section class="section__features">
     <div class="section__features__buttons">
       <square-button
-        v-for="(f, i) in features"
+        v-for="(feature, i) in features"
         :key="i"
-        :style="{ color: fontColor(f) }"
-        @click.native="feature(f)"
+        :style="{ color: fontColor(feature) }"
+        @click.native="action(feature)"
         class="section__features__buttons__button"
       >
-        <span>{{ f }}</span>
+        <span>{{ feature }}</span>
       </square-button>
     </div>
   </section>
@@ -25,12 +25,10 @@ export default {
       required: true
     }
   },
-  data() {
-    return {
-      features: ['marge', 'snapshot', 'queue', 'delete']
-    }
-  },
   computed: {
+    features() {
+      return ['marge', 'snapshot', 'queue', 'delete']
+    },
     fontColor() {
       return function(feature) {
         if (feature === 'delete') {
@@ -42,7 +40,7 @@ export default {
     }
   },
   methods: {
-    feature(f) {}
+    action(feature) {}
   }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="layout">
+  <div :style="{ height: windowSize }" class="layout">
     <nuxt class="page" />
 
     <link-button-container class="link-button-container" />
@@ -10,13 +10,20 @@
 export default {
   components: {
     LinkButtonContainer: () => import('~/components/LinkButtonContainer')
+  },
+  data() {
+    return {
+      windowSize: '100vh'
+    }
+  },
+  mounted() {
+    this.windowSize = `${window.innerHeight}px`
   }
 }
 </script>
 
 <style lang="scss" scoped>
 .layout {
-  height: -webkit-fill-available;
   display: flex;
   flex-direction: column;
   color: $color;
@@ -24,10 +31,10 @@ export default {
 }
 
 .page {
-  min-height: 100%;
   display: flex;
   flex-direction: column;
   padding: 16px 0 36px;
+  overflow: auto;
 }
 
 .link-button-container {

@@ -13,7 +13,7 @@
       <span>{{ track.artist.name }}</span>
     </div>
 
-    <round-button class="play-track__play">
+    <round-button @click.native="play(track.uri)" class="play-track__play">
       <i class="material-icons">play_arrow</i>
     </round-button>
   </div>
@@ -28,6 +28,13 @@ export default {
     track: {
       type: Object,
       required: true
+    }
+  },
+  methods: {
+    async play(uri) {
+      await this.$axios.put('/player/start', {
+        uris: [uri]
+      })
     }
   }
 }
