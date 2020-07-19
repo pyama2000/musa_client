@@ -1,7 +1,7 @@
 FROM node:12 as builder
 WORKDIR /usr/src/musa_client
 COPY package.json package.json
-RUN npm install
+RUN yarn
 COPY . .
 RUN npm run build
 
@@ -15,4 +15,4 @@ COPY --from=builder /usr/src/musa_client/nuxt.config.js nuxt.config.js
 COPY --from=builder /usr/src/musa_client/node_modules node_modules/
 COPY --from=builder /usr/src/musa_client/.nuxt .nuxt/
 COPY --from=builder /usr/src/musa_client/static static/
-CMD ["npm", "run", "start"]
+CMD ["yarn", "start"]
